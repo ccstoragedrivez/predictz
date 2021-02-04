@@ -13,9 +13,9 @@ import os
 # Setup
 TOKEN = ""
 PREFIX = ""
-TIMEZONE = "Australia/Sydney"
-DAILY = 100
-STARTING_MONEY = 10000
+timezone = America/Los_Angeles
+daily = 1000
+starting_money = 1000000
 
 CONFIG = 'config.ini'
 parser = configparser.ConfigParser()
