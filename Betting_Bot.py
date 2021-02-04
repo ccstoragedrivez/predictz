@@ -13,7 +13,7 @@ import os
 # Setup
 TOKEN = ""
 PREFIX = ""
-timezone = America/Los_Angeles
+timezone = "America/Los_Angeles"
 daily = 1000
 starting_money = 1000000
 
