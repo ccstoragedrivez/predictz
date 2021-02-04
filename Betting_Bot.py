@@ -45,7 +45,7 @@ class BettingSystem():
         self._valid_yes = ["y", "yes", "w", "win", "t", "true"]
         self._valid_no = ["n", "no", "l", "loss", "lose", "f", "false"]
         self._invalid_side_message = "result must be one of " + str(self._valid_yes + self._valid_no)
-        self.MAX_BET = 100000
+        self.MAX_BET = 500000
         self.MIN_BET = 1
 
     # todo remove
