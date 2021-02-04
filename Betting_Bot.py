@@ -14,7 +14,7 @@ import os
 TOKEN = ""
 PREFIX = ""
 timezone = "America/Los_Angeles"
-daily = 1000
+daily = 10000
 starting_money = 1000000
 
 CONFIG = 'config.ini'
