@@ -320,7 +320,7 @@ class BetEvent():
         self._id = eventId
         self._description = description
         self._bets = []
-        self._odds = odds #odds for "yes"
+        self._odds = 2 #odds for "yes"
         self._resolved = False
         self._result = "n/a"
         self._locked = False
@@ -356,7 +356,7 @@ class BetEvent():
         locked = ""
         if self.locked() and not(self.resolved()):
             locked = " (locked)"
-        output += self._description + " @ $" + "{:.2f}".format(self.odds(True)) + locked + "\n"
+        output += self._description + "\n"
         if self.resolved():
             output += "RESULT: " + str(self._result).upper() + "\n"
         if mention:
@@ -397,7 +397,7 @@ class Bet():
         if not(self.side()):
             join = " against "
         if self._resolution == "n/a":
-            return self.user().name() + " bet " + "$" + "{:.2f}".format(self.amount()) + " @ $" + "{:.2f}".format(self.underlying().odds(self.side())) + join + self.underlying()._description
+            return self.user().name() + " bet " + "$" + "{:.2f}".format(self.amount())
         else:
             return self.user().name() + " " + self._resolution + " " + "$" + "{:.2f}".format(self.winnings()) + " betting" + join + self.underlying()._description
 
@@ -482,8 +482,8 @@ async def on_ready():
 # Create event
 @client.command(aliases=["e"], usage="<odds> <description>", help="Allows a BettingAdmin to create an event for users to bet on.\ne.g. event 2 Oslo gets a penta this game.")
 @commands.has_role("BettingAdmin")
-async def event(ctx, odds, *, description):
-    await ctx.send(wrap(client.system.add_event(description, float(odds))))
+async def event(ctx, *, description):
+    await ctx.send(wrap(client.system.add_event(description, 2)))
 
 # Resolve event
 @client.command(aliases=["r"], usage="<eventId> <result (yes/no)>", help="Allows a BettingAdmin to resolve an event that users have bet on.\ne.g. resolve 21 y.")
